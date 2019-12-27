@@ -1,9 +1,9 @@
 /**
  * Copyright (C), 2019-2019, 软件卓越人才班
- * FileName: Customer
+ * FileName: UserRoles
  * Author:   hzg
- * Date:     2019-12-23 14:14
- * Description: 示例代码客户类
+ * Date:     2019-12-27 08:17
+ * Description: 角色
  * History:
  * <author>          <time>          <version>          <desc>
  * 作者姓名           修改时间           版本号              描述
@@ -14,27 +14,27 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * 〈一句话功能简述〉<br> 
- * 〈示例代码客户类〉
+ * 〈角色〉
  *
- * @author hbr
- * @create 2019-12-23
+ * @author hzg
+ * @create 2019-12-27
  * @since 1.0.0
  */
 @Data
 @Entity
-@Table(name = "t_customer")
+@Table(name = "t_user_roles")
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
-public class Customer implements Serializable {
-    private static final long serialVersionUID = -3009157732242241606L;
-
+public class UserRoles {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long userRoleId;
 
-    @Column(name = "customer_name")
-    private String customerName;
+    private String username;
+
+    private String rolename;
+
+
 }

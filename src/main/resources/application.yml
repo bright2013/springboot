@@ -17,6 +17,8 @@ spring:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
+  thymeleaf:
+    cache: false
 logging:
   level:
     org:

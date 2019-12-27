@@ -84,6 +84,13 @@ public class CustomerController {
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
 
+    @GetMapping("/one")
+    public Customer getCustomer(){
+
+        Customer customer = customerRepository.getOne(10001L);
+       return customer;
+    }
+
 
 
 }

@@ -1,4 +1,12 @@
 $('table tbody').html('');
+var name  = $('#name').val();
+var title = $('#title').val();
+
+$('#sub').click(function (){
+    var name  = $('#name').val();
+    console.log(name);
+})
+console.log(name);
 $.ajax({
     url:"/customer/all",
     type:"get",

@@ -15,14 +15,13 @@ import java.util.List;
 @Controller
 public class WelcomeController {
 
+
     // inject via application.properties
     @Value("${welcome.message}")
     private String message;
 
-    @Resource
-    CustomerRepository customerRepository;
-
     private List<String> tasks = Arrays.asList("张三", "李四", "王五");
+
 
     @GetMapping("/")
     public String main(Model model) {
@@ -32,37 +31,20 @@ public class WelcomeController {
         return "welcome"; //view
     }
 
-    // /hello?name=kotlin
-    @GetMapping("/hello")
-    public String mainWithParam(
-            @RequestParam(name = "name", required = false, defaultValue = "") String name, Model model) {
+    @GetMapping("/login")
+    public String login(Model model) {
 
-        model.addAttribute("message", name);
-
-        return "welcome"; //view
+        return "loginpage"; //view
     }
 
-    @GetMapping("/element")
-    public String mainWithParam( Model model) {
-
-        return "elementui"; //view
+    @GetMapping("/write")
+    public String writePaper( Model model) {
+        return "writepaper"; //view
     }
 
-    @GetMapping("/customer")
-    public String customerHome( Model model) {
-        List<Customer> customers = customerRepository.findAll();
-        model.addAttribute("customers", customers);
-        return "customerview"; //view
-    }
-
-    @GetMapping("/custajax")
-    public String customerAjaxHome( Model model) {
-        return "customerajax"; //view
-    }
-
-    @GetMapping("/example")
-    public String exampleHome( Model model) {
-        return "blank"; //view
+    @GetMapping("/myreport")
+    public String myreport( Model model) {
+        return "reportlist"; //view
     }
 
 }
