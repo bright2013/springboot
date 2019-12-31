@@ -59,7 +59,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/h2_console/**").permitAll() //开发时使用，生产环境需要去掉
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/student/**").hasRole("STUDENT")
-                .antMatchers("/teacher/**").hasRole("TEACHER")
+                .antMatchers("/group/**").hasRole("GROUPLEADER")
+                .antMatchers("/class/**").hasRole("TEACHER")
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login").permitAll()
                 .successHandler(successHandler)  //登陆成功后的处理

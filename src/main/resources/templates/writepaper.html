@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   <head>
     <base href="./">
     <meta charset="utf-8">
@@ -21,7 +21,7 @@
     <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
       <div class="c-sidebar-brand"><img class="c-sidebar-brand-full" src="../assets/brand/coreui-base-white.jpeg" width="118" height="46" alt="卓越班"><img class="c-sidebar-brand-minimized" src="../assets/brand/coreui-signet-white.svg" width="118" height="46" alt="CoreUI Logo"></div>
       <ul class="c-sidebar-nav">
-        <li class="c-sidebar-nav-title">日报</li>
+        <li class="c-sidebar-nav-title">我的日报</li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/write">
             <svg class="c-sidebar-nav-icon">
               <use xlink:href="/icons/svg/free.svg#cil-pencil"></use>
@@ -31,8 +31,22 @@
               <use xlink:href="/icons/svg/free.svg#cil-drop1"></use>
             </svg> 看日报</a></li>
 
+        <li class="c-sidebar-nav-title">检查日报</li>
+        <li class="c-sidebar-nav-item"  sec:authorize="hasRole('ROLE_GROUPLEADER')">
+          <a class="c-sidebar-nav-link" href="/groupreport">
+            <svg class="c-sidebar-nav-icon">
+              <use xlink:href="/icons/svg/free.svg#cil-check"></use>
+            </svg> 本组日报</a></li>
+        <li class="c-sidebar-nav-item" sec:authorize="hasRole('ROLE_TEACHER')">
+          <a class="c-sidebar-nav-link" href="/classreport">
+            <svg class="c-sidebar-nav-icon">
+              <use xlink:href="/icons/svg/free.svg#cil-compass"></use>
+
+            </svg>班级日报</a></li>
+
+
         <li class="c-sidebar-nav-item mt-auto">
-          <a class="c-sidebar-nav-link c-sidebar-nav-link-success" href="/logout" target="_top">
+          <a class="c-sidebar-nav-link" href="/logout" target="_top">
             <svg class="c-sidebar-nav-icon">
               <use xlink:href="/icons/svg/free.svg#cil-account-logout"></use>
             </svg> 退出登陆</a></li>

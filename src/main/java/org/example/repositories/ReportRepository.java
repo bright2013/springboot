@@ -28,4 +28,6 @@ public interface ReportRepository extends JpaRepository<Report, Long> {
 
     List<Report> findAllByCreatedPersonEquals(String personName);
 
+    List<Report> findAllByCreatedGroupEquals(String groupName);
+
 }

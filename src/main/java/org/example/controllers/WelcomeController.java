@@ -47,4 +47,14 @@ public class WelcomeController {
         return "reportlist"; //view
     }
 
+    @GetMapping("/groupreport")
+    public String groupreport( Model model) {
+        return "groupreportlist"; //view
+    }
+
+    @GetMapping("/classreport")
+    public String classreport( Model model) {
+        return "classreportlist"; //view
+    }
+
 }

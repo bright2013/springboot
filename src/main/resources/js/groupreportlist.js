@@ -1,5 +1,5 @@
 $(function () {
-    $.get("/student/allmyreports", function (res, status) {
+    $.get("/group/allgroupreports", function (res, status) {
 
         $('#table').bootstrapTable({
             pagination: true,
@@ -7,6 +7,10 @@ $(function () {
             showSearchClearButton: true,
             exportTypes: ['json', 'xml', 'csv', 'txt', 'sql', 'excel', 'pdf'],
             columns: [
+                {
+                    field: 'createdPerson',
+                    title: '成员姓名'
+                },
                 {
                 field: 'createdAt',
                 title: '日期'

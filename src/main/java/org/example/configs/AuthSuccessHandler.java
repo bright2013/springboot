@@ -70,7 +70,7 @@ public class AuthSuccessHandler implements AuthenticationSuccessHandler {
         }
 
         if (hasTeacherRole || hasAdminRole) {
-            redirectStrategy.sendRedirect(arg0, arg1, "/allreports");
+            redirectStrategy.sendRedirect(arg0, arg1, "/classreport");
         } else if (hasStudentRole) {
             redirectStrategy.sendRedirect(arg0, arg1, "/write");
         } else {
